@@ -15,5 +15,6 @@ public interface BoardDAO {
 	public abstract int getTotalNumsOfRecords();
 	public abstract List<BoardVO> select(String userid);
 	public abstract List<BoardVO> selectByTitleOrContent(String keyword);
+	public abstract int updateReplyCount(int amount, int replyBno);
 	
 }

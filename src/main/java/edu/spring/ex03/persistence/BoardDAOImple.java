@@ -1,6 +1,8 @@
 package edu.spring.ex03.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -89,6 +91,14 @@ public class BoardDAOImple implements BoardDAO{
 		LOGGER.info("select() »£√‚ : keyword = " + keyword);
 		keyword = "%" + keyword + "%";
 		return sqlSession.selectList(NAMESPACE + ".select_by_keyword", keyword);
+	}
+
+	@Override
+	public int updateReplyCount(int amount, int replyBno) {
+		Map<String, Integer> args = new HashMap<String, Integer>();
+		args.put("amount", amount);
+		args.put("bno", replyBno);
+		return sqlSession.update(NAMESPACE + ".update_reply_count", args);
 	}
 
 }

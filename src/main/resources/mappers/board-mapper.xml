@@ -73,4 +73,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 ${content} like #{keyword}
 	 order by ${bno} desc
 	 </select>
+	 
+	 <update id="update_reply_count">
+	 update ${test_board}
+	 set ${replyCount} = ${replyCount} + #{amount}
+	 where ${bno} = #{bno}
+	</update>	
+
 </mapper>

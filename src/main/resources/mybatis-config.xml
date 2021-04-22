@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		 <property name="content" value="content"/>
 		 <property name="userid" value="userid"/>
 		 <property name="cdate" value="cdate"/>
+		 <property name="replyCount" value="reply_count"/>
 		 
 		 <property name="test_reply" value="test_reply"></property>
 		 <property name="replyNo" value="reply_no"></property>

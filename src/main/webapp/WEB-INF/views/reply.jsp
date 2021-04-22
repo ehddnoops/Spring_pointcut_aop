@@ -10,7 +10,7 @@
 <body>
    <div style="text-align: center">
       <div>
-         <input type="hidden" id="replyBno" value="1">
+         <input type="hidden" id="replyBno" value="3">
          <input type="text" id="replyId">
          <input type="text" id="replyContent" placeholder="댓글 입력하기">
          <button type="button" id="btn_add">작성</button>

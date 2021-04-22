@@ -5,8 +5,8 @@ import java.util.List;
 import edu.spring.ex03.domain.ReplyVO;
 
 public interface ReplyService {
-	int create(ReplyVO vo);
+	int create(ReplyVO vo) throws Exception;
 	List<ReplyVO> read(int replyBno);
 	int update(ReplyVO vo);
-	int delete(int replyNo, int replyBno);
+	int delete(int replyNo, int replyBno) throws Exception;
 }

@@ -39,8 +39,13 @@ public class ReplyRESTController {
 		// @RequestBody
 		// - 클라이언트에서 전송받은 json 데이터를 자바 객체로 변환해주는 annotation
 		LOGGER.info(vo.toString());
-		int result = replyService.create(vo);
-		return new ResponseEntity<Integer>(result, HttpStatus.OK);
+		int result;
+		try {
+			result = replyService.create(vo);
+			return new ResponseEntity<Integer>(result, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Integer>(0, HttpStatus.OK);
+		}
 	}
 	
 	@GetMapping("/all/{replyBno}") // GET : 댓글 선택(all)
@@ -75,10 +80,10 @@ public class ReplyRESTController {
 			@RequestBody ReplyVO vo){
 		LOGGER.info("replyBno = " + vo.getReplyBno());
 		
-		int result = replyService.delete(replyNo, vo.getReplyBno());
-		if(result == 1) {
+		try {
+			replyService.delete(replyNo, vo.getReplyBno());
 			return new ResponseEntity<String>("success", HttpStatus.OK);
-		} else {
+		} catch(Exception e) {
 			return new ResponseEntity<String>("fail", HttpStatus.OK);
 		}
 	}
